@@ -4,10 +4,11 @@ import { redTowers } from "./objects.js";
 import { blueTowers } from "./objects.js";
 
 class Unit {
-	constructor (functional,team,victim) {
+	constructor (functional,team,victim,sprite) {
 		this.functional = functional;
 		this.victim = victim;
 		this.team = team;
+		this.sprite = sprite;
 		this.life = true; // или уровень жизни, если решим, что Юнит гибнет постепенно
 		this.dispositionX = (function () {
             if (team === 'red') {
