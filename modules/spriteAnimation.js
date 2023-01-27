@@ -1,3 +1,7 @@
+import { arrayRedSoldiers } from "./objects.js";
+import { arrayBlueSoldiers } from "./objects.js";
+import { redTowers } from "./objects.js";
+import { blueTowers } from "./objects.js";
 
 let canvas = document.getElementById("canvas");
 
@@ -17,15 +21,16 @@ let frameY = 0;
 let gameFrame = 0;
 const frameCount = 10;
 
+const redTowerSprite = new Image ();
+redTowerSprite.src = "../img/red_tower.png";
 
-
-
-
-
-
+const blueTowerSprite = new Image ();
+blueTowerSprite.src = "../img/blue_tower.png";
 
 function draw() {
     ctx.clearRect(0, 0, widthCtx, heightCtx);
+    ctx.drawImage(redTowerSprite, 0, 0, 190, 450, 0, 100, 200, 450);
+    ctx.drawImage(blueTowerSprite, 0, 0, 190, 450, 600, 115, 200, 450);
     ctx.drawImage(test, 0, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 560, 50, 50);
     ctx.drawImage(test, 50 , frameY * spriteHeight, spriteWidth, spriteHeight, 50, 560, 50, 50);
     ctx.drawImage(test, 100, frameY * spriteHeight, spriteWidth, spriteHeight, 100, 560, 50, 50);
