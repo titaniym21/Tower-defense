@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./modules/main.js" type="module"></script>
+    <script src="./modules/spriteAnimation.js" type="module"></script>
+    <title>Tower-defense</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu__item">
+                <button class="menu__button" id="start">Start</button>
+            </div>
+            <div class="menu__item">
+                <button class="menu__button" id="stop">Stop</button>
+            </div>
+            <div class="menu__item">
+                <button class="menu__button" id="restart">Restart</button>
+            </div>
+        </div>
+        <div class="game">
+            <canvas height="600" id="canvas" width="800"></canvas>
+        </div>
+    </div>
+</body>
+</html>
