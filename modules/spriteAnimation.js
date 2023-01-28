@@ -1,5 +1,5 @@
-import { arrayRedSoldiers } from "./objects.js";
-import { arrayBlueSoldiers } from "./objects.js";
+import { redArmy } from "./objects.js";
+import { blueArmy } from "./objects.js";
 import { redTowers } from "./objects.js";
 import { blueTowers } from "./objects.js";
 
@@ -52,7 +52,6 @@ function draw() {
     drawSprite(test, 2* spriteWidth, frameY, spriteWidth, spriteHeight, 200, 560, 50, 50, 3 , 'vertical');
     drawSprite(test, 3* spriteWidth, frameY, spriteWidth, spriteHeight, 250, 560, 50, 50, 3 , 'vertical');
     drawSprite(test, 4* spriteWidth, frameY, spriteWidth, spriteHeight, 300, 560, 50, 50, 3 , 'vertical');
-    console.log(gameFrame);
     if (gameFrame % frameCount == 0) {
         frameY++;
         frameX++;

@@ -1,15 +1,21 @@
-import { arrayRedSoldiers } from "./objects.js";
-import { arrayBlueSoldiers } from "./objects.js";
 import { redTowers } from "./objects.js";
 import { blueTowers } from "./objects.js";
 
-class Unit {
+export class Unit {
 	constructor (functional,team,victim,sprite) {
 		this.functional = functional;
 		this.victim = victim;
 		this.team = team;
 		this.sprite = sprite;
-		this.life = true; // или уровень жизни, если решим, что Юнит гибнет постепенно
+		this.life = 5; // или уровень жизни, если решим, что Юнит гибнет постепенно
+		this.step = (function () {
+			if (team === 'red') {
+				return 2;
+			};
+			if (team === 'blue') {
+				return -2;
+			};
+        }) ();
 		this.dispositionX = (function () {
             if (team === 'red') {
 				return 100;
@@ -44,30 +50,6 @@ class Unit {
 		allDead (this,this.life); // вызываем в методе фабрику Гибели Юнита, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
 	}*/
 };
-
-let flyingRedAttackedFly = new Unit ('flying','red','beatFlying');
-let flyingRedAttackedWalk = new Unit ('flying','red','beatWalking');
-let walkingRedAttackedFly = new Unit ('walking','red','beatFlying');
-let walkingRedAttackedWalk = new Unit ('walking','red','beatWalking');
-let walkingRedAttackedAll = new Unit ('walking','red','beatAll');
-
-arrayRedSoldiers.push (flyingRedAttackedFly);
-arrayRedSoldiers.push (flyingRedAttackedWalk);
-arrayRedSoldiers.push (walkingRedAttackedFly);
-arrayRedSoldiers.push (walkingRedAttackedWalk);
-arrayRedSoldiers.push (walkingRedAttackedAll);
-
-let flyingBlueAttackedFly = new Unit ('flying','blue','beatFlying');
-let flyingBlueAttackedWalk = new Unit ('flying','blue','beatWalking');
-let walkingBlueAttackedFly = new Unit ('walking','blue','beatFlying');
-let walkingBlueAttackedWalk = new Unit ('walking','blue','beatWalking');
-let walkingBlueAttackedAll = new Unit ('walking','blue','beatAll');
-
-arrayBlueSoldiers.push (flyingBlueAttackedFly);
-arrayBlueSoldiers.push (flyingBlueAttackedWalk);
-arrayBlueSoldiers.push (walkingBlueAttackedFly);
-arrayBlueSoldiers.push (walkingBlueAttackedWalk);
-arrayBlueSoldiers.push (walkingBlueAttackedAll);
 
 class Tower {
 	constructor (team,disposition) {

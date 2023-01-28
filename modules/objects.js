@@ -1,7 +1,7 @@
-let arrayRedSoldiers = [];
-let arrayBlueSoldiers = [];
-export {arrayRedSoldiers};
-export {arrayBlueSoldiers};
+let redArmy = [];
+let blueArmy = [];
+export {redArmy};
+export {blueArmy};
 let redTowers = [];
 let blueTowers = [];
 export {redTowers};
