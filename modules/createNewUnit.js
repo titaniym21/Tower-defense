@@ -1,4 +1,5 @@
 import {Unit} from "./classes.js";
+import {redArmy, blueArmy, blueTowers, redTowers, count} from "./objects.js";
 
 let createSoldiers = function (team, toArmy) {
     let randomSoldier = Math.floor(Math.random() * 5);
@@ -31,8 +32,7 @@ let createSoldiers = function (team, toArmy) {
     }
 
     toArmy.push(newSoldier);
-    console.log(toArmy);
-
+    count[0] += 1;
 
     setTimeout(() => {
         createSoldiers(team, toArmy)

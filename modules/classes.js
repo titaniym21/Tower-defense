@@ -6,6 +6,8 @@ export class Unit {
         this.victim = victim;
         this.team = team;
         this.sprite = sprite;
+		this.width = 20;
+		this.heighth = 25;
         this.life = 5; // или уровень жизни, если решим, что Юнит гибнет постепенно
         this.step = (function () {
             if (team === 'red') {
@@ -39,33 +41,24 @@ export class Unit {
         })();
     }
 
-    /*attackOnTheVictim () {
-        allOnTheVictim (this.team,this.victim,this.functional); // вызываем в методе фабрику Атаки Врага, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
-    }
+    draw () {
 
-    attackOnTheTower () {
-        allOnTheTower (this.team,this.disposition); // вызываем в методе фабрику Атаки Башни, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
     }
-
-    moving () {
-        allMoving (this.team,this.disposition); // вызываем в методе фабрику Движения Юнитов, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
-    }
-
-    dead () {
-        allDead (this,this.life); // вызываем в методе фабрику Гибели Юнита, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
-    }*/
-}
+};
 
 class Tower {
-    constructor(team, disposition) {
+    constructor(team, dispositionX) {
         this.team = team;
-        this.dispositionX = disposition;
+        this.dispositionX = dispositionX;
+		this.dispositionY = 300;//условно;
         this.energy = 100;
+		this.width = 190;
+		this.height = 450;
     }
 
-    /*destruction () {
-        deadTower (this.team,this.energy); // вызываем в методе фабрику Разрушения Башни, передавая указанные параметры. С контекстом поиграемся, чтобы не потерять
-    }*/
+    draw () {
+
+    }
 }
 
 let redTower = new Tower('red', 100);
