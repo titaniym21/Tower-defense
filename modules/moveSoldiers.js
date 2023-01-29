@@ -9,7 +9,12 @@ let moveSoldiers = function (army) {
 let clash = function () {
     redArmy.forEach ((element) => {
       blueArmy.forEach ((el,index) => {
-        if ((element.dispositionX + element.width) === el.dispositionX) {
+        if (
+          ((element.dispositionX + element.width) === el.dispositionX) &&
+          (((element.victim === 'beatFlying') && (el.functional === 'flying')) ||
+          ((element.victim === 'beatWalking') && (el.functional === 'walking')) ||
+          ((element.victim === 'beatAll') && ((el.functional === 'flying') || (el.functional === 'walking'))))
+        ) {
           element.dispositionX -= element.step;
           el.life -= 1;
           if (el.life === 0) {
@@ -22,7 +27,12 @@ let clash = function () {
 
     blueArmy.forEach ((element) => {
       redArmy.forEach ((el,index) => {
-        if ((element.dispositionX + element.width) === el.dispositionX) {
+        if (
+          (element.dispositionX === (el.dispositionX + el.width)) &&
+          (((element.victim === 'beatFlying') && (el.functional === 'flying')) ||
+          ((element.victim === 'beatWalking') && (el.functional === 'walking')) ||
+          ((element.victim === 'beatAll') && ((el.functional === 'flying') || (el.functional === 'walking'))))
+        ) {
           element.dispositionX -= element.step;
           el.life -= 1;
           if (el.life === 0) {
