@@ -5,6 +5,9 @@ let crashTower = function () {
      if ((element.dispositionX + element.width) === blueTowers[0].dispositionX) {
         redArmy.splice (index,1);
         blueTowers[0].energy -= 10;
+        if (blueTowers[0].energy === 0) {
+            //тут кінець гри пишемо
+        };
      };
     });
 
@@ -12,6 +15,9 @@ let crashTower = function () {
         if ((element.dispositionX) === (redTowers[0].dispositionX + redTowers[0].width)) {
             blueArmy.splice (index,1);
             redTowers[0].energy -= 10;
+            if (redTowers[0].energy === 0) {
+                //тут кінець гри пишемо
+            };
          };
     });
 };
