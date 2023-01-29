@@ -5,6 +5,7 @@ let crashTower = function () {
      if ((element.dispositionX + element.width) === blueTowers[0].dispositionX) {
         redArmy.splice (index,1);
         blueTowers[0].energy -= 10;
+        count[2] += 10;
         if (blueTowers[0].energy === 0) {
             //тут кінець гри пишемо
         };
