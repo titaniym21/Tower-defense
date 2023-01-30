@@ -7,7 +7,8 @@ let crashTower = function () {
         blueTowers[0].energy -= 10;
         count[2] += 10;
         if (blueTowers[0].energy === 0) {
-            //тут кінець гри пишемо
+                gameOver = false;
+                console.log(gameOver);
         };
      };
     });
@@ -17,7 +18,8 @@ let crashTower = function () {
             blueArmy.splice (index,1);
             redTowers[0].energy -= 10;
             if (redTowers[0].energy === 0) {
-                //тут кінець гри пишемо
+                gameOver = false;
+                console.log(gameOver);
             };
          };
     });

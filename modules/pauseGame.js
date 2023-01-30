@@ -14,6 +14,7 @@ let pauseGame = function () {
         createSoldiers ('red',redArmy);
         createSoldiers ('blue',blueArmy);
         allGame ();
+        !requestAnimationFrame (allGame);
      };
 };
 

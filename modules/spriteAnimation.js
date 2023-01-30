@@ -94,7 +94,7 @@ function draw() {
               
 
 export { draw };*/
-
+let gameOver = true;
 let renderingArmy = function (army) {
     army.forEach(element => {
         element.draw ();
@@ -120,6 +120,7 @@ let allGame = function () {
         renderingArmy(redArmy);
         renderingArmy(blueArmy);
         requestAnimationFrame (allGame);
+        if (!gameOver) requestAnimationFrame(allGame);
     };
 };
 

@@ -12,21 +12,21 @@ export class Unit {
         this.life = 2; // или уровень жизни, если решим, что Юнит гибнет постепенно
         this.step = (function () {
             if (team === 'red') {
-                return 1;
+                return 2;
             }
 
             if (team === 'blue') {
-                return -1;
+                return -2;
             }
 
         })();
         this.dispositionX = (function () {
             if (team === 'red') {
-                return 200;
+                return 0;
             }
 
             if (team === 'blue') {
-                return 500;
+                return 1200;
             }
 
         })();
@@ -53,7 +53,7 @@ class Tower {
         this.team = team;
         this.dispositionX = dispositionX;
 		this.dispositionY = 300;//условно;
-        this.energy = 100;
+        this.energy = setInterval(() => this.energy += 5, 2000);
 		this.width = 190;
 		this.height = 450;
     }
@@ -61,12 +61,20 @@ class Tower {
     draw () {
         ctx.fillStyle = this.team;
         ctx.fillRect (this.dispositionX, this.dispositionY, this.width, this. height);
+
+        ctx.fillStyle = "gold";
+        ctx.font = "40px Orbital";
+        ctx.fillText(Math.floor(this.energy), this.dispositionX + 60, this.dispositionY + 60);
     }
 }
 
-let redTower = new Tower('red', 100);
-let blueTower = new Tower('blue', 500);
+let redTower = new Tower('red', 0);
+let blueTower = new Tower('blue', 1010);
 
 redTowers.push(redTower);
 blueTowers.push(blueTower);
+
+// console.log(redTower.draw());
+
+
 
