@@ -22,3 +22,5 @@ let crashTower = function () {
          };
     });
 };
+
+export { crashTower };

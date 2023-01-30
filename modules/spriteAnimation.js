@@ -1,11 +1,13 @@
-
+import {blueArmy, blueTowers, redArmy, redTowers, count, pauseBoolean} from "./objects.js";
+import { clashArmy1, clashArmy2, moveSoldiers } from "./moveSoldiers.js";
+import { crashTower } from "./atackedTower.js";
 
 let canvas = document.getElementById("canvas");
 
 let ctx = canvas.getContext("2d");
 let widthCtx = canvas.width;
 let heightCtx = canvas.height;
-// частота кадрів
+/*// частота кадрів
 const frameTime = 1000 / 30;
 
 
@@ -91,7 +93,48 @@ function draw() {
 //draw();
               
 
-export { draw };
+export { draw };*/
+
+let renderingArmy = function (army) {
+    army.forEach(element => {
+        element.draw ();
+    });
+};
+
+let renderingTowers = function (tower) {
+    tower.forEach(element => {
+        element.draw ();
+    });
+};
+
+let allGame = function () {
+    if (pauseBoolean[0]) {
+        moveSoldiers(blueArmy);
+        moveSoldiers(redArmy);
+        clashArmy1();
+        clashArmy2();
+        crashTower();
+        ctx.clearRect(0, 0, widthCtx, heightCtx);
+        renderingTowers(redTowers);
+        renderingTowers(blueTowers);
+        renderingArmy(redArmy);
+        renderingArmy(blueArmy);
+        requestAnimationFrame (allGame);
+    };
+};
+
+let allPaint = requestAnimationFrame (allGame);
+
+setInterval (() => {
+    console.log (blueTowers[0].energy);
+    console.log (redTowers[0].energy);
+    console.log (redArmy.length);
+    console.log (blueArmy.length);
+},1000);
+
+export { allGame };
+export { ctx };
+
 
 
 

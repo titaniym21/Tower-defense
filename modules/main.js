@@ -1,4 +1,4 @@
-import { draw } from "./spriteAnimation.js";
+//import { draw } from "./spriteAnimation.js";
 
 const startButton = document.getElementById('start');
 const pauseButton = document.getElementById('pause');

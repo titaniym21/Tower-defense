@@ -1,9 +1,8 @@
 import {Unit} from "./classes.js";
-import {redArmy, blueArmy, count} from "./objects.js";
-import { pauseBoolean } from "./pauseGame.js";
+import {redArmy, blueArmy, count, pauseBoolean} from "./objects.js";
 
 let createSoldiers = function (team, toArmy) {
-    if (pauseBoolean) {
+    if (pauseBoolean[0]) {
         let randomSoldier = Math.floor(Math.random() * 5);
     let newSoldier;
     switch (randomSoldier) {
@@ -34,7 +33,6 @@ let createSoldiers = function (team, toArmy) {
     }
 
     toArmy.push(newSoldier);
-    console.log (toArmy);
     count[0] += 1;
 
     setTimeout(() => {

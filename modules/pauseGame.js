@@ -1,21 +1,19 @@
 import { createSoldiers } from "./createNewUnit.js";
-import { redArmy, blueArmy } from "./objects.js";
+import { redArmy, blueArmy, pauseBoolean } from "./objects.js";
+import { allGame } from "./spriteAnimation.js";
 
 let pauseButton = document.getElementById ('pause');
 
-let pauseBoolean = true;
-
-export { pauseBoolean };
-
 let pauseGame = function () {
      
-     if (pauseBoolean) {
-        pauseBoolean = false;
+     if (pauseBoolean[0]) {
+        pauseBoolean[0] = false;
      }
      else {
-        pauseBoolean = true;
+        pauseBoolean[0] = true;
         createSoldiers ('red',redArmy);
         createSoldiers ('blue',blueArmy);
+        allGame ();
      };
 };
 

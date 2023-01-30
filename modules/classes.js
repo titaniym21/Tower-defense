@@ -1,4 +1,5 @@
 import {blueTowers, redTowers} from "./objects.js";
+import { ctx } from "./spriteAnimation.js";
 
 export class Unit {
     constructor(functional, team, victim, sprite) {
@@ -6,22 +7,22 @@ export class Unit {
         this.victim = victim;
         this.team = team;
         this.sprite = sprite;
-		this.width = 20;
-		this.heighth = 25;
-        this.life = 5; // или уровень жизни, если решим, что Юнит гибнет постепенно
+		this.width = 10;
+		this.height = 10;
+        this.life = 2; // или уровень жизни, если решим, что Юнит гибнет постепенно
         this.step = (function () {
             if (team === 'red') {
-                return 2;
+                return 1;
             }
 
             if (team === 'blue') {
-                return -2;
+                return -1;
             }
 
         })();
         this.dispositionX = (function () {
             if (team === 'red') {
-                return 100;
+                return 200;
             }
 
             if (team === 'blue') {
@@ -42,7 +43,8 @@ export class Unit {
     }
 
     draw () {
-
+        ctx.fillStyle = this.team;
+        ctx.fillRect (this.dispositionX, this.dispositionY, this.width, this. height);
     }
 };
 
@@ -57,7 +59,8 @@ class Tower {
     }
 
     draw () {
-
+        ctx.fillStyle = this.team;
+        ctx.fillRect (this.dispositionX, this.dispositionY, this.width, this. height);
     }
 }
 
