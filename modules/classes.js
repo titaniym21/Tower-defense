@@ -389,9 +389,12 @@ export class Unit {
     draw () {
         ctx.drawImage(this.sprite, this.xSprite, this.ySprite, this.xPruning, this.yPruning, this.dispositionX, this.dispositionY, this.width, this. height);
         this.xSprite += this.stepSprite;
-        if (this.xSprite > this.lastSpritePosition ) {
-        this.xSprite = this.firstSpritePosition;
- };
+        if ((this.stepSprite) < 0 && (this.xSprite > this.lastSpritePosition)) {
+            this.xSprite = this.firstSpritePosition;
+        };
+        if ((this.stepSprite) > 0 && (this.xSprite < this.lastSpritePosition)) {
+            this.xSprite = this.firstSpritePosition;
+        };
     }
 };
 
