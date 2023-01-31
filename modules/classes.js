@@ -35,34 +35,166 @@ redFlyingFly.src = '../img/red_flying_beat_fly.png';
 
 let sprites = function (team,functional,victim) {
     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
-        return blueWalkingWalk;
+        return blueWalkingAll;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return blueWalkingFly;
+        return blueWalkingAll;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
         return blueWalkingAll;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
-        return blueFlyingWalk;
+        return blueWalkingAll;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return blueFlyingFly;
+        return blueWalkingAll;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return redWalkingWalk;
+        return blueWalkingAll;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return redWalkingFly;
+        return blueWalkingAll;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
-        return redWalkingAll;
+        return blueWalkingAll;
     };
     if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
-        return redFlyingWalk;
+        return blueWalkingAll;
     };
     if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
-        return redFlyingFly;
+        return blueWalkingAll;
+    };
+};
+
+let xFirstPositionSprite = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 10;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 10;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 10;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 10;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 10;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 10;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 10;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 10;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 10;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 10;
+    };
+};
+
+let yFirstPositionSprite = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 210;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 210;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 210;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 210;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 210;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 210;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 210;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 210;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 210;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 210;
+    };
+};
+
+let xLastPositionSprite = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 800;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 800;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 800;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 800;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 800;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 800;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 800;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 800;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 800;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 800;
+    };
+};
+
+let spriteStep = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 144;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 144;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 144;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 144;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 144;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 144;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 144;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 144;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 144;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 144;
     };
 };
 
@@ -101,6 +233,138 @@ let positionUnitY = function (functional) {
     }
 };
 
+let pruningX = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 120;
+    };
+};
+
+let pruningY = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 120;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 120;
+    };
+};
+
+let widthSoldier = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 60;
+    };
+};
+
+let heightSoldier = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 60;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 60;
+    };
+};
+
 export class Unit {
     constructor(functional, team, victim) {
         this.functional = functional;
@@ -109,19 +373,24 @@ export class Unit {
         this.life = 3; 
         this.step = speed (this.team,this.functional);
         this.sprite = sprites (this.team,this.functional,this.victim);
-        this.xSprite = 10;
-        this.stepSprite = 144;
-		this.width = 60;
-		this.height = 60;
+        this.stepSprite = spriteStep (this.team,this.functional,this.victim);
+        this.lastSpritePosition = xLastPositionSprite (this.team,this.functional,this.victim);
+        this.firstSpritePosition = xFirstPositionSprite (this.team,this.functional,this.victim);
+        this.xSprite = this.firstSpritePosition;
+        this.ySprite = yFirstPositionSprite (this.team,this.functional,this.victim);
+        this.xPruning = pruningX (this.team,this.functional,this.victim);
+        this.yPruning = pruningY (this.team,this.functional,this.victim);
+		this.width = widthSoldier (this.team,this.functional,this.victim);
+		this.height = heightSoldier (this.team,this.functional,this.victim);
         this.dispositionX = positionUnitX (this.team);
         this.dispositionY = positionUnitY (this.functional);
     }
 
     draw () {
-        ctx.drawImage(blueWalkingAll, this.xSprite, 210, 120, 120, this.dispositionX, this.dispositionY, this.width, this. height);
+        ctx.drawImage(this.sprite, this.xSprite, this.ySprite, this.xPruning, this.yPruning, this.dispositionX, this.dispositionY, this.width, this. height);
         this.xSprite += this.stepSprite;
-        if (this.xSprite > 800 ) {
-        this.xSprite = 10;
+        if (this.xSprite > this.lastSpritePosition ) {
+        this.xSprite = this.firstSpritePosition;
  };
     }
 };
