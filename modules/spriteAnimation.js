@@ -7,6 +7,11 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let widthCtx = canvas.width;
 let heightCtx = canvas.height;
+
+let field = new Image (widthCtx,heightCtx);
+field.src = '../img/field.jpg';
+field.addEventListener ('load',ctx.drawImage(field, 0, 0, widthCtx, heightCtx), false);
+
 /*// частота кадрів
 const frameTime = 1000 / 30;
 
@@ -121,6 +126,7 @@ let allGame = function () {
         crashTower();
         if (gameOver[0]) {
             ctx.clearRect(0, 0, widthCtx, heightCtx);
+            ctx.drawImage(field, 0, 0, widthCtx, heightCtx);
             renderingTowers(redTowers);
             renderingTowers(blueTowers);
             renderingArmy(redArmy);
@@ -132,27 +138,21 @@ let allGame = function () {
             ctx.clearRect(0, 0, widthCtx, heightCtx);
             const damageBlue = 100 - blueTowers[0].energy;
             const damageRed = 100 - redTowers[0].energy;
+            ctx.drawImage(field, 0, 0, widthCtx, heightCtx);
             ctx.fillStyle='red';
-            ctx.font = "50px serif";
+            ctx.font = "40px serif";
             ctx.fillText('Total Damage: ' + damageRed, 50, 150);
-            ctx.fillText('Number of created fighters: ' + countRed[0], 50, 300);
-            ctx.fillText('Number of dead fighters: ' + countRed[1], 50, 450);
+            ctx.fillText('Number of created\nfighters: ' + countRed[0], 50, 300);
+            ctx.fillText('Number of dead\nfighters: ' + countRed[1], 50, 450);
             ctx.fillStyle='blue';
-            ctx.fillText('Total Damage: ' + damageBlue, 350, 150);
-            ctx.fillText('Number of created fighters: ' + countBlue[0], 350, 300);
-            ctx.fillText('Number of dead fighters: ' + countBlue[1], 350, 450);
+            ctx.fillText('Total Damage: ' + damageBlue, 350, 200);
+            ctx.fillText('Number of created\nfighters: ' + countBlue[0], 350, 350);
+            ctx.fillText('Number of dead\nfighters: ' + countBlue[1], 350, 500);
         };
     };
 };
 
 let allPaint = requestAnimationFrame (allGame);
-
-setInterval (() => {
-    console.log (blueTowers[0].energy);
-    console.log (redTowers[0].energy);
-    console.log (redArmy.length);
-    console.log (blueArmy.length);
-},1000);
 
 export { allGame };
 export { ctx };

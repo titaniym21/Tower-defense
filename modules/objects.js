@@ -1,3 +1,5 @@
+let redClasses = [];
+let blueClasses = [];
 let redArmy = [];
 let blueArmy = [];
 export {redArmy};
