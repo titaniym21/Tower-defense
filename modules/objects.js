@@ -6,7 +6,11 @@ let redTowers = [];
 let blueTowers = [];
 export {redTowers};
 export {blueTowers};
-let count = [0, 0, 0]; // лічильники [створених юнітів, вбитих юнітів, загальний урон]
-export {count};
+let countRed =  [0,0];
+let countBlue = [0,0];
+export {countRed};
+export {countBlue};
 let pauseBoolean = [true];
 export { pauseBoolean };
+let gameOver = [true];
+export { gameOver };

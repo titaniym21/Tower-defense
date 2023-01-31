@@ -1,11 +1,11 @@
 import { createSoldiers } from "./createNewUnit.js";
-import { redArmy, blueArmy, pauseBoolean } from "./objects.js";
+import { redArmy, blueArmy, pauseBoolean, gameOver} from "./objects.js";
 import { allGame } from "./spriteAnimation.js";
 
 let pauseButton = document.getElementById ('pause');
 
 let pauseGame = function () {
-     
+     if (gameOver[0]) {
      if (pauseBoolean[0]) {
         pauseBoolean[0] = false;
      }
@@ -14,8 +14,8 @@ let pauseGame = function () {
         createSoldiers ('red',redArmy);
         createSoldiers ('blue',blueArmy);
         allGame ();
-        !requestAnimationFrame (allGame);
      };
+   };
 };
 
 pauseButton.addEventListener ('click', pauseGame);

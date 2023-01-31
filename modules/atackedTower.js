@@ -1,14 +1,12 @@
-import {blueArmy, blueTowers, redArmy, redTowers, count} from "./objects.js";
+import {blueArmy, blueTowers, redArmy, redTowers, gameOver} from "./objects.js";
 
 let crashTower = function () {
     redArmy.forEach ((element,index) => {
      if ((element.dispositionX + element.width) === blueTowers[0].dispositionX) {
         redArmy.splice (index,1);
         blueTowers[0].energy -= 10;
-        count[2] += 10;
         if (blueTowers[0].energy === 0) {
-                gameOver = false;
-                console.log(gameOver);
+            gameOver[0] = false;
         };
      };
     });
@@ -18,8 +16,7 @@ let crashTower = function () {
             blueArmy.splice (index,1);
             redTowers[0].energy -= 10;
             if (redTowers[0].energy === 0) {
-                gameOver = false;
-                console.log(gameOver);
+                gameOver[0] = false;
             };
          };
     });

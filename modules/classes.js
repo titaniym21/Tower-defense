@@ -9,7 +9,7 @@ export class Unit {
         this.sprite = sprite;
 		this.width = 10;
 		this.height = 10;
-        this.life = 2; // или уровень жизни, если решим, что Юнит гибнет постепенно
+        this.life = 3; // или уровень жизни, если решим, что Юнит гибнет постепенно
         this.step = (function () {
             if (team === 'red') {
                 return 2;
@@ -22,17 +22,17 @@ export class Unit {
         })();
         this.dispositionX = (function () {
             if (team === 'red') {
-                return 0;
+                return 190;
             }
 
             if (team === 'blue') {
-                return 1200;
+                return 810;
             }
 
         })();
         this.dispositionY = (function () {
             if (functional === 'flying') {
-                return 100;
+                return 300;
             }
 
             if (functional === 'walking') {
@@ -53,7 +53,7 @@ class Tower {
         this.team = team;
         this.dispositionX = dispositionX;
 		this.dispositionY = 300;//условно;
-        this.energy = setInterval(() => this.energy += 5, 2000);
+        this.energy = 100;
 		this.width = 190;
 		this.height = 450;
     }
@@ -69,7 +69,7 @@ class Tower {
 }
 
 let redTower = new Tower('red', 0);
-let blueTower = new Tower('blue', 1010);
+let blueTower = new Tower('blue', 810);
 
 redTowers.push(redTower);
 blueTowers.push(blueTower);

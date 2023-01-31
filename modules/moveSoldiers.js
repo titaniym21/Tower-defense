@@ -1,4 +1,4 @@
-import {blueArmy, redArmy, count} from "./objects.js";
+import {blueArmy, redArmy, countBlue, countRed} from "./objects.js";
 
 let moveSoldiers = function (army) {
   army.forEach(element => {
@@ -10,7 +10,7 @@ let clashArmy1 = function () {
     redArmy.forEach ((element) => {
       blueArmy.forEach ((el,index) => {
         if (
-          (((element.dispositionX + element.width) > el.dispositionX) && ((element.dispositionX + (element.width/2)) < el.dispositionX)) &&
+          (((element.dispositionX + element.width) > el.dispositionX) && ((element.dispositionX + element.width) < ((el.width/2) + el.dispositionX))) &&
           (((element.victim === 'beatFlying') && (el.functional === 'flying')) ||
           ((element.victim === 'beatWalking') && (el.functional === 'walking')) ||
           ((element.victim === 'beatAll') && ((el.functional === 'flying') || (el.functional === 'walking'))))
@@ -19,7 +19,7 @@ let clashArmy1 = function () {
           el.life -= 1;
           if (el.life === 0) {
             blueArmy.splice (index,1);
-            count[1] += 1;
+            countBlue[1] += 1;
           };
         }
       });
@@ -40,7 +40,7 @@ let clashArmy2 = function () {
         el.life -= 1;
         if (el.life === 0) {
           redArmy.splice (index,1);
-          count[1] += 1;
+          countRed[1] += 1;
         };
       }
     });

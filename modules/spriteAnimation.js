@@ -1,4 +1,4 @@
-import {blueArmy, blueTowers, redArmy, redTowers, count, pauseBoolean} from "./objects.js";
+import {blueArmy, blueTowers, redArmy, redTowers, pauseBoolean, gameOver, countRed, countBlue} from "./objects.js";
 import { clashArmy1, clashArmy2, moveSoldiers } from "./moveSoldiers.js";
 import { crashTower } from "./atackedTower.js";
 
@@ -94,7 +94,6 @@ function draw() {
               
 
 export { draw };*/
-let gameOver = true;
 let renderingArmy = function (army) {
     army.forEach(element => {
         element.draw ();
@@ -111,16 +110,38 @@ let allGame = function () {
     if (pauseBoolean[0]) {
         moveSoldiers(blueArmy);
         moveSoldiers(redArmy);
-        clashArmy1();
-        clashArmy2();
+        if (Math.floor (Math.random() + 0.5)) {
+            clashArmy1();
+            clashArmy2(); 
+        }
+        else {
+            clashArmy2();
+            clashArmy1();
+        };
         crashTower();
-        ctx.clearRect(0, 0, widthCtx, heightCtx);
-        renderingTowers(redTowers);
-        renderingTowers(blueTowers);
-        renderingArmy(redArmy);
-        renderingArmy(blueArmy);
-        requestAnimationFrame (allGame);
-        if (!gameOver) requestAnimationFrame(allGame);
+        if (gameOver[0]) {
+            ctx.clearRect(0, 0, widthCtx, heightCtx);
+            renderingTowers(redTowers);
+            renderingTowers(blueTowers);
+            renderingArmy(redArmy);
+            renderingArmy(blueArmy);
+            requestAnimationFrame (allGame);
+        }
+        else {
+            cancelAnimationFrame (allPaint);
+            ctx.clearRect(0, 0, widthCtx, heightCtx);
+            const damageBlue = 100 - blueTowers[0].energy;
+            const damageRed = 100 - redTowers[0].energy;
+            ctx.fillStyle='red';
+            ctx.font = "50px serif";
+            ctx.fillText('Total Damage: ' + damageRed, 50, 150);
+            ctx.fillText('Number of created fighters: ' + countRed[0], 50, 300);
+            ctx.fillText('Number of dead fighters: ' + countRed[1], 50, 450);
+            ctx.fillStyle='blue';
+            ctx.fillText('Total Damage: ' + damageBlue, 350, 150);
+            ctx.fillText('Number of created fighters: ' + countBlue[0], 350, 300);
+            ctx.fillText('Number of dead fighters: ' + countBlue[1], 350, 450);
+        };
     };
 };
 

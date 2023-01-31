@@ -1,8 +1,8 @@
-import {Unit} from "./classes.js";
-import {redArmy, blueArmy, count, pauseBoolean} from "./objects.js";
+import { Unit } from "./classes.js";
+import {redArmy, blueArmy, pauseBoolean, gameOver, countRed, countBlue} from "./objects.js";
 
 let createSoldiers = function (team, toArmy) {
-    if (pauseBoolean[0]) {
+    if (pauseBoolean[0] && gameOver[0]) {
         let randomSoldier = Math.floor(Math.random() * 5);
     let newSoldier;
     switch (randomSoldier) {
@@ -33,7 +33,13 @@ let createSoldiers = function (team, toArmy) {
     }
 
     toArmy.push(newSoldier);
-    count[0] += 1;
+
+    if (team === 'blue') {
+        countBlue[0] += 1;
+    };
+    if (team === 'red') {
+        countRed[0] += 1;
+    };
 
     setTimeout(() => {
         createSoldiers(team, toArmy)
