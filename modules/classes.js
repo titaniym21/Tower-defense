@@ -4,31 +4,31 @@ import { ctx } from "./spriteAnimation.js";
 let blueWalkingAll = new Image (1200,300);
 blueWalkingAll.src = '../img/blue_walking_beat_all.png';
 
-let blueWalkingWalk = new Image (50,50);
+let blueWalkingWalk = new Image (1200,300);
 blueWalkingWalk.src = '../img/blue_walking_beat_walk.png';
 
-let blueWalkingFly = new Image (50,50);
+let blueWalkingFly = new Image (1200,300);
 blueWalkingFly.src = '../img/blue_walking_beat_fly.png';
 
-let blueFlyingWalk = new Image (50,50);
+let blueFlyingWalk = new Image (1200,300);
 blueFlyingWalk.src = '../img/blue_flying_beat_walk.png';
 
-let blueFlyingFly = new Image (50,50);
+let blueFlyingFly = new Image (1200,300);
 blueFlyingFly.src = '../img/blue_flying_beat_fly.png';
 
-let redWalkingAll = new Image (50,50);
+let redWalkingAll = new Image (1200,300);
 redWalkingAll.src = '../img/red_walking_beat_all.png';
 
-let redWalkingWalk = new Image (50,50);
+let redWalkingWalk = new Image (1200,300);
 redWalkingWalk.src = '../img/red_walking_beat_walk.png';
 
-let redWalkingFly = new Image (50,50);
+let redWalkingFly = new Image (1200,300);
 redWalkingFly.src = '../img/red_walking_beat_fly.png';
 
-let redFlyingWalk = new Image (50,50);
+let redFlyingWalk = new Image (1200,300);
 redFlyingWalk.src = '../img/red_flying_beat_walk.png';
 
-let redFlyingFly = new Image (50,50);
+let redFlyingFly = new Image (1200,300);
 redFlyingFly.src = '../img/red_flying_beat_fly.png';
 
 
@@ -71,22 +71,22 @@ let xLastPositionSprite = function (team,functional,victim) {
         return 12000;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return 6240;
+        return 4240;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
-        return 4100;
+        return 3500;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
         return 3175;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return 12900;
+        return 12500;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 4815;
+        return 12600;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 2550;
+        return 12600;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
         return 4680;
@@ -116,10 +116,10 @@ let spriteStep = function (team,functional,victim) {
         return 440;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 535;
+        return 1050;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 510;
+        return 528;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
         return 520;
@@ -169,28 +169,61 @@ let positionUnitY = function (functional) {
 
 let pruningX = function (team,functional,victim) {
     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
-        return 580;
+        return 530;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return 390;
+        return 430;
     };
     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
-        return 420;
+        return 390;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
         return 270;
     };
     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return 390;
+        return 410;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 530;
+        return 950;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 470;
+        return 500;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
-        return 470;
+        return 500;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+        return 255;
+    };
+    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+        return 255;
+    };
+};
+
+let pruningY = function (team,functional,victim) {
+    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+        return 619;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+        return 500;
+    };
+    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+        return 500;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+        return 270;
+    };
+    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+        return 580;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+        return 970;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+        return 580;
+    };
+    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+        return 570;
     };
     if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
         return 255;
@@ -213,9 +246,9 @@ export class Unit {
         this.xSprite = 0;
         this.ySprite = 0;
         this.xPruning = pruningX (this.team,this.functional,this.victim);
-        this.yPruning = 592;
-		this.width = 60;
-		this.height = 60;
+        this.yPruning = pruningY (this.team,this.functional,this.victim);
+		this.width = 70;
+		this.height = 75;
         this.dispositionX = positionUnitX (this.team);
         this.dispositionY = positionUnitY (this.functional);
     }
