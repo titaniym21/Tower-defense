@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <link href="./style.css" rel="stylesheet">
-    <script src="./modules/objects.js" type="module"></script>
-    <script src="./modules/classes.js" type="module"></script>
-    <script src="./modules/main.js" type="module"></script>
-    <script src="./modules/createNewUnit.js" type="module"></script>
-    <script src="./modules/moveSoldiers.js" type="module"></script>
-    <script src="./modules/atackedTower.js" type="module"></script>
-    <script src="./modules/pauseGame.js" type="module"></script>
-    <script src="./modules/spriteAnimation.js" type="module"></script>
-    <title>Tower-defense</title>
-</head>
-<body>
-<div class="container">
-    <div class="menu">
-        <div class="menu__item">
-            <button class="menu__button" id="start">Start</button>
+<html lang="en">>
+    <head>
+      <meta charset="UTF-8">
+        <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+              name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+        <link href="./style.css" rel="stylesheet">
+        <script defer src="./modules/objects.js" type="module"></script>
+        <script defer src="./modules/classes.js" type="module"></script>
+        <script defer src="./modules/createNewUnit.js" type="module"></script>
+        <script defer src="./modules/moveSoldiers.js" type="module"></script>
+        <script defer src="./modules/atackedTower.js" type="module"></script>
+        <script defer src="./modules/conrtolGame.js" type="module"></script>
+        <script defer src="./modules/spriteAnimation.js" type="module"></script>
+        <title>Tower-defense</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu__item">
+                <button class="menu__button" id="start">Start</button>
+            </div>
+            <div class="menu__item">
+                <button class="menu__button" id="pause">Pause</button>
+            </div>
+            <div class="menu__item">
+                <button class="menu__button" id="restart">Restart</button>
+            </div>
         </div>
-        <div class="menu__item">
-            <button class="menu__button" id="pause">Pause</button>
+        <div class="game">
+            <canvas height="600" id="canvas" width="1000"></canvas>
         </div>
-        <div class="menu__item">
-            <button class="menu__button" id="restart">Restart</button>
+        <div class="info">
+            <span class="info__item">Информация:</span>
+            <span class="info__item">кнопка Start для запуска игры</span>
+            <span class="info__item">кнопка Pause для приостановки/продолжение игры</span>
+            <span class="info__item">кнопка Restart для перезапуска игры</span>
         </div>
     </div>
-    <div class="game">
-        <canvas height="600" id="canvas" width="1000"></canvas>
-    </div>
-</div>
-</body>
+    </body>
 </html>

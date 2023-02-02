@@ -86,7 +86,7 @@ let xLastPositionSprite = function (team,functional,victim) {
         return 12600;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 12600;
+        return 6000;
     };
     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
         return 4680;
@@ -149,21 +149,24 @@ let speed = function (team,functional) {
 
 let positionUnitX = function (team) {
     if (team === 'red') {
-        return 190;
+        return 90;
     }
 
     if (team === 'blue') {
-        return 750;
+        return 830;
     }
 };
 
 let positionUnitY = function (functional) {
     if (functional === 'flying') {
-        return 300;
+        //return 300;
+        return Math.floor(Math.random() * 250 + 100);
     }
 
     if (functional === 'walking') {
-        return 500;
+        //return 500;
+        // рандо от 400 до 550
+        return Math.floor(Math.random() * 100 + 400);
     }
 };
 
@@ -238,7 +241,7 @@ export class Unit {
         this.functional = functional;
         this.victim = victim;
         this.team = team;
-        this.life = 10; 
+        this.life = 10;
         this.step = speed (this.team,this.functional);
         this.sprite = sprites (this.team,this.functional,this.victim);
         this.stepSprite = spriteStep (this.team,this.functional,this.victim);
@@ -269,10 +272,10 @@ class Tower {
     constructor(team, dispositionX) {
         this.team = team;
         this.dispositionX = dispositionX;
-		this.dispositionY = 300;//условно;
+		this.dispositionY = 100;//условно;
         this.energy = 100;
-		this.width = 190;
-		this.height = 450;
+		this.width = 100;
+		this.height = 500;
     }
 
     draw () {
@@ -281,12 +284,12 @@ class Tower {
 
         ctx.fillStyle = "gold";
         ctx.font = "40px Orbital";
-        ctx.fillText(Math.floor(this.energy), this.dispositionX + 60, this.dispositionY + 60);
+        ctx.fillText(Math.floor(this.energy), this.dispositionX + 20, this.dispositionY + 300);
     }
 }
 
 let redTower = new Tower('red', 0);
-let blueTower = new Tower('blue', 810);
+let blueTower = new Tower('blue', 900);
 
 redTowers.push(redTower);
 blueTowers.push(blueTower);

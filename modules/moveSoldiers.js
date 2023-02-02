@@ -20,7 +20,7 @@ let clashArmy1 = function () {
           if (el.life === 0) {
             blueArmy.splice (index,1);
             countBlue[1] += 1;
-          };
+          }
         }
       });
     });
@@ -41,7 +41,7 @@ let clashArmy2 = function () {
         if (el.life === 0) {
           redArmy.splice (index,1);
           countRed[1] += 1;
-        };
+        }
       }
     });
   });

@@ -1,5 +1,5 @@
-let redClasses = [];
-let blueClasses = [];
+// let redClasses = [];
+// let blueClasses = [];
 let redArmy = [];
 let blueArmy = [];
 export {redArmy};
@@ -12,7 +12,7 @@ let countRed =  [0,0];
 let countBlue = [0,0];
 export {countRed};
 export {countBlue};
-let pauseBoolean = [true];
+let pauseBoolean = [false];
 export { pauseBoolean };
 let gameOver = [true];
 export { gameOver };

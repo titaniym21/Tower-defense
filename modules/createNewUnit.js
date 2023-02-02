@@ -36,15 +36,15 @@ let createSoldiers = function (team, toArmy) {
 
     if (team === 'blue') {
         countBlue[0] += 1;
-    };
+    }
     if (team === 'red') {
         countRed[0] += 1;
-    };
+    }
 
     setTimeout(() => {
         createSoldiers(team, toArmy)
     }, Math.floor((Math.random() * 501) + 500));
-   };
+   }
 };
 
 export { createSoldiers };
