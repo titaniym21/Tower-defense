@@ -1,5 +1,5 @@
 import { createSoldiers } from "./createNewUnit.js";
-import { redArmy, blueArmy, pauseBoolean, gameOver } from "./objects.js";
+import { redArmy, blueArmy, pauseBoolean, gameOver, mainMusic } from "./objects.js";
 import { allGame } from "./spriteAnimation.js";
 
 const borderGame = document.getElementsByClassName("game")[0];
@@ -12,6 +12,7 @@ let startGame = function () {
   if (gameOver[0]) {
     if (pauseBoolean[0] === false) {
       pauseBoolean[0] = true;
+      mainMusic[0].play();
       createSoldiers("red", redArmy);
       createSoldiers("blue", blueArmy);
       allGame();

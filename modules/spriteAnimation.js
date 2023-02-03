@@ -7,6 +7,7 @@ import {
   gameOver,
   countRed,
   countBlue,
+  mainMusic
 } from "./objects.js";
 import { clashArmy1, clashArmy2, moveSoldiers } from "./moveSoldiers.js";
 import { crashTower } from "./atackedTower.js";
@@ -58,6 +59,7 @@ let allGame = function () {
       renderingArmy(blueArmy);
       requestAnimationFrame(allGame);
     } else {
+      mainMusic[0].pause();
       cancelAnimationFrame(allPaint);
       ctx.clearRect(0, 0, widthCtx, heightCtx);
       const damageBlue = 100 - blueTowers[0].energy;
