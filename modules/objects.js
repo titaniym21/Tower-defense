@@ -22,6 +22,6 @@ export { pauseBoolean };
 let gameOver = [true];
 export { gameOver };
 let mainMusic = [document.getElementById ('main_music')];
-mainMusic[0].volume = 0.1;
+mainMusic[0].volume = 0.3;
 export { mainMusic };
 

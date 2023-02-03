@@ -1,5 +1,8 @@
 import { blueArmy, redArmy, countBlue, countRed } from "./objects.js";
 
+const musicWound = document.getElementById ('wound_music');
+const musicClash = document.getElementById ('clash_music');
+
 let moveSoldiers = function (army) {
   army.forEach((element) => {
     element.dispositionX += element.step;
@@ -17,6 +20,8 @@ let clashArmy1 = function () {
           (element.victim === "beatAll" &&
             (el.functional === "flying" || el.functional === "walking")))
       ) {
+        musicClash.play();
+        musicWound.play();
         element.dispositionX -= element.step;
         el.life -= 1;
         if (el.life === 0) {
@@ -39,6 +44,8 @@ let clashArmy2 = function () {
           (element.victim === "beatAll" &&
             (el.functional === "flying" || el.functional === "walking")))
       ) {
+        musicClash.play();
+        musicWound.play();
         element.dispositionX -= element.step;
         el.life -= 1;
         if (el.life === 0) {
