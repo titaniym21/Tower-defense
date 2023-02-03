@@ -63,6 +63,8 @@ let allGame = function () {
       const damageBlue = 100 - blueTowers[0].energy;
       const damageRed = 100 - redTowers[0].energy;
       ctx.drawImage(field, 0, 0, widthCtx, heightCtx);
+      renderingTowers(redTowers);
+      renderingTowers(blueTowers);
       ctx.fillStyle = "red";
       ctx.font = "40px serif";
       ctx.fillText("Total Damage: " + damageRed, 50, 150);
