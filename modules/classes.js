@@ -1,8 +1,11 @@
 import {blueTowers, redTowers, pruningXMap, pruningYMap , spriteStepMap} from "./objects.js";
 import { ctx } from "./spriteAnimation.js";
 
-let tower = new Image(200 , 500);
-tower.src = "img/tower.png";
+let redTowerLeft = new Image(2200 , 375);
+redTowerLeft.src = "img/red_tower.png";
+
+let blueTowerRight = new Image(2200 , 375);
+blueTowerRight.src = "img/blue_tower.png";
 
 let blueWalkingAll = new Image (1200,300);
 blueWalkingAll.src = 'img/blue_walking_beat_all.png';
@@ -194,7 +197,7 @@ let positionUnitX = function (team) {
 
 let positionUnitY = function (functional) {
     if (functional === 'flying') {
-        return Math.floor(Math.random() * 250 + 100);
+        return Math.floor(Math.random() * 250 + 200);
     }
 
     if (functional === 'walking') {
@@ -356,27 +359,27 @@ class Tower {
     constructor(team, dispositionX) {
         this.team = team;
         this.dispositionX = dispositionX;
-		this.dispositionY = 140;//условно;
+		this.dispositionY = 200;
         this.energy = 100;
-		this.width = 200;
-		this.height = 500;
+        this.xSprite = 0;
+        this.width = 200;
     }
 
     draw () {
         if (this.team === 'blue') {
-            ctx.drawImage(tower, 30, 20, this.width, this. height -150, this.dispositionX, this.dispositionY, this.width, this. height );
+            ctx.drawImage(blueTowerRight, this.xSprite, 0, 200, 375, this.dispositionX, this.dispositionY, this.width, 375 );
         }
         if (this.team === 'red') {
-            ctx.drawImage(tower, 290, 30, this.width, this. height -150, this.dispositionX, this.dispositionY, this.width, this. height);
+            ctx.drawImage(redTowerLeft, this.xSprite, 0, 200, 375, this.dispositionX, this.dispositionY, this.width, 375);
         }
         ctx.fillStyle = "gold";
         ctx.font = "40px Orbital";
-        ctx.fillText(Math.floor(this.energy), this.dispositionX + 25, this.dispositionY + 350);
+        ctx.fillText(Math.floor(this.energy), this.dispositionX + 40, this.dispositionY + 350);
     }
 }
 
 let redTower = new Tower('red', 0);
-let blueTower = new Tower('blue', 900);
+let blueTower = new Tower('blue', 880);
 
 redTowers.push(redTower);
 blueTowers.push(blueTower);
