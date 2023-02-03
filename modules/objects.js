@@ -1,10 +1,3 @@
-
-let pruningXMap = new Map();
-let pruningYMap = new Map();
-let spriteStepMap = new Map();
-export { pruningXMap };
-export { pruningYMap };
-export { spriteStepMap };
 let redArmy = [];
 let blueArmy = [];
 export { redArmy };
