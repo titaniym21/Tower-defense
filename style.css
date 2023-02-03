@@ -1,68 +1,63 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-image:  url(img/background_image.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  background-image: url(img/background_image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 20px;
-
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
 }
 
-
 .menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu__item {
-    margin: 20px;
-    cursor: pointer;
+  margin: 20px;
+  cursor: pointer;
 }
 
 .menu__button {
-    width: 100px;
-    height: 50px;
-    border: 2px solid black;
-    background-color: white;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 10px;
-
-
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .game {
-    height: 600px;
+  height: 600px;
 }
 
 .info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
 }
 
 .info__item {
-    font-size: 30px;
-    font-weight: bold;
-    background: #CF0000;
-    background: radial-gradient(circle farthest-corner at top right, #CF0000 0%, #0C20CF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+  font-size: 25px;
+  font-weight: bold;
+  background: #cf0000;
+  background: radial-gradient(
+    circle farthest-corner at top right,
+    #cf0000 0%,
+    #0c20cf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

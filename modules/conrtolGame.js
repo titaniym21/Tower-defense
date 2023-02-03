@@ -1,46 +1,43 @@
 import { createSoldiers } from "./createNewUnit.js";
-import { redArmy, blueArmy, pauseBoolean, gameOver} from "./objects.js";
+import { redArmy, blueArmy, pauseBoolean, gameOver } from "./objects.js";
 import { allGame } from "./spriteAnimation.js";
 
-const borderGame = document.getElementsByClassName('game')[0];
-const startButton = document.getElementById ('start');
-const pauseButton = document.getElementById ('pause');
-const restartButton = document.getElementById ('restart');
+const borderGame = document.getElementsByClassName("game")[0];
+const startButton = document.getElementById("start");
+const pauseButton = document.getElementById("pause");
+const restartButton = document.getElementById("restart");
 
 let startGame = function () {
-    borderGame.style.border = '2px solid black';
-    if (gameOver[0]) {
-        if (pauseBoolean[0] === false) {
-            pauseBoolean[0] = true;
-            createSoldiers('red', redArmy);
-            createSoldiers('blue', blueArmy);
-            allGame();
-            startButton.removeEventListener('click', startGame)
-            pauseButton.addEventListener ('click', pauseGame);
-        }
+  borderGame.style.border = "2px solid black";
+  if (gameOver[0]) {
+    if (pauseBoolean[0] === false) {
+      pauseBoolean[0] = true;
+      createSoldiers("red", redArmy);
+      createSoldiers("blue", blueArmy);
+      allGame();
+      startButton.removeEventListener("click", startGame);
+      pauseButton.addEventListener("click", pauseGame);
     }
+  }
 };
 
-startButton.addEventListener ('click', startGame);
+startButton.addEventListener("click", startGame);
 
 let pauseGame = function () {
-   if (gameOver[0]) {
-     if (pauseBoolean[0]) {
-        pauseBoolean[0] = false;
-     }
-     else {
-        pauseBoolean[0] = true;
-        createSoldiers ('red',redArmy);
-        createSoldiers ('blue',blueArmy);
-        allGame ();
-     }
-   }
+  if (gameOver[0]) {
+    if (pauseBoolean[0]) {
+      pauseBoolean[0] = false;
+    } else {
+      pauseBoolean[0] = true;
+      createSoldiers("red", redArmy);
+      createSoldiers("blue", blueArmy);
+      allGame();
+    }
+  }
 };
 
-
-
 let restartGame = function () {
-    window.location.reload();
-}
+  window.location.reload();
+};
 
-restartButton.addEventListener ('click', restartGame);
+restartButton.addEventListener("click", restartGame);

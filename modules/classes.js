@@ -1,35 +1,38 @@
-import {blueTowers, redTowers} from "./objects.js";
+import {blueTowers, redTowers, pruningXMap, pruningYMap , spriteStepMap} from "./objects.js";
 import { ctx } from "./spriteAnimation.js";
 
+let tower = new Image(200 , 500);
+tower.src = "img/tower.png";
+
 let blueWalkingAll = new Image (1200,300);
-blueWalkingAll.src = '../img/blue_walking_beat_all.png';
+blueWalkingAll.src = 'img/blue_walking_beat_all.png';
 
 let blueWalkingWalk = new Image (1200,300);
-blueWalkingWalk.src = '../img/blue_walking_beat_walk.png';
+blueWalkingWalk.src = 'img/blue_walking_beat_walk.png';
 
 let blueWalkingFly = new Image (1200,300);
-blueWalkingFly.src = '../img/blue_walking_beat_fly.png';
+blueWalkingFly.src = 'img/blue_walking_beat_fly.png';
 
 let blueFlyingWalk = new Image (1200,300);
-blueFlyingWalk.src = '../img/blue_flying_beat_walk.png';
+blueFlyingWalk.src = 'img/blue_flying_beat_walk.png';
 
 let blueFlyingFly = new Image (1200,300);
-blueFlyingFly.src = '../img/blue_flying_beat_fly.png';
+blueFlyingFly.src = 'img/blue_flying_beat_fly.png';
 
 let redWalkingAll = new Image (1200,300);
-redWalkingAll.src = '../img/red_walking_beat_all.png';
+redWalkingAll.src = 'img/red_walking_beat_all.png';
 
 let redWalkingWalk = new Image (1200,300);
-redWalkingWalk.src = '../img/red_walking_beat_walk.png';
+redWalkingWalk.src = 'img/red_walking_beat_walk.png';
 
 let redWalkingFly = new Image (1200,300);
-redWalkingFly.src = '../img/red_walking_beat_fly.png';
+redWalkingFly.src = 'img/red_walking_beat_fly.png';
 
 let redFlyingWalk = new Image (1200,300);
-redFlyingWalk.src = '../img/red_flying_beat_walk.png';
+redFlyingWalk.src = 'img/red_flying_beat_walk.png';
 
 let redFlyingFly = new Image (1200,300);
-redFlyingFly.src = '../img/red_flying_beat_fly.png';
+redFlyingFly.src = 'img/red_flying_beat_fly.png';
 
 
 
@@ -66,6 +69,12 @@ let sprites = function (team,functional,victim) {
     };
 };
 
+
+
+
+
+
+
 let xLastPositionSprite = function (team,functional,victim) {
     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
         return 12000;
@@ -99,38 +108,64 @@ let xLastPositionSprite = function (team,functional,victim) {
     };
 };
 
-let spriteStep = function (team,functional,victim) {
-    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
-        return 610;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return 410;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
-        return 430;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
-        return 275;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return 440;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 1050;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 528;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
-        return 520;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
-        return 260;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
-        return 256;
-    };
+
+
+// let spriteStep = function (team,functional,victim) {
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+//         return 610;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+//         return 410;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+//         return 430;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+//         return 275;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+//         return 440;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+//         return 1050;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+//         return 528;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+//         return 520;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+//         return 260;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+//         return 256;
+//     };
+// };
+
+
+spriteStepMap.set('blue', new Map());
+spriteStepMap.get('blue').set('walking', new Map());
+spriteStepMap.get('blue').get('walking').set('beatWalking', 610);
+spriteStepMap.get('blue').get('walking').set('beatFlying', 410);
+spriteStepMap.get('blue').get('walking').set('beatAll', 430);
+spriteStepMap.get('blue').set('flying', new Map());
+spriteStepMap.get('blue').get('flying').set('beatWalking', 275);
+spriteStepMap.get('blue').get('flying').set('beatFlying', 440);
+spriteStepMap.set('red', new Map());
+spriteStepMap.get('red').set('walking', new Map());
+spriteStepMap.get('red').get('walking').set('beatWalking', 1050);
+spriteStepMap.get('red').get('walking').set('beatFlying', 528);
+spriteStepMap.get('red').get('walking').set('beatAll', 520);
+spriteStepMap.get('red').set('flying', new Map());
+spriteStepMap.get('red').get('flying').set('beatWalking', 260);
+spriteStepMap.get('red').get('flying').set('beatFlying', 256);
+
+let spriteStep = function (team, functional, victim) {
+    return spriteStepMap.get(team).get(functional).get(victim);
 };
+
+
 
 let speed = function (team,functional) {
     if (team === 'blue' && functional === 'walking') {
@@ -153,88 +188,137 @@ let positionUnitX = function (team) {
     }
 
     if (team === 'blue') {
-        return 830;
+        return 860;
     }
 };
 
 let positionUnitY = function (functional) {
     if (functional === 'flying') {
-        //return 300;
         return Math.floor(Math.random() * 250 + 100);
     }
 
     if (functional === 'walking') {
-        //return 500;
-        // рандо от 400 до 550
-        return Math.floor(Math.random() * 100 + 400);
+        return Math.floor(Math.random() * 130 + 400);
+    
     }
 };
 
+// let pruningX = function (team,functional,victim) {
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+//         return 530;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+//         return 430;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+//         return 390;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+//         return 270;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+//         return 410;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+//         return 950;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+//         return 500;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+//         return 500;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+//         return 255;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+//         return 255;
+//     };
+// };
+
+
+pruningXMap.set('blue', new Map());
+pruningXMap.get('blue').set('walking', new Map());
+pruningXMap.get('blue').get('walking').set('beatWalking', 530);
+pruningXMap.get('blue').get('walking').set('beatFlying', 430);
+pruningXMap.get('blue').get('walking').set('beatAll', 390);
+pruningXMap.get('blue').set('flying', new Map());
+pruningXMap.get('blue').get('flying').set('beatWalking', 270);
+pruningXMap.get('blue').get('flying').set('beatFlying', 410);
+pruningXMap.set('red', new Map());
+pruningXMap.get('red').set('walking', new Map());
+pruningXMap.get('red').get('walking').set('beatWalking', 950);
+pruningXMap.get('red').get('walking').set('beatFlying', 500);
+pruningXMap.get('red').get('walking').set('beatAll', 500);
+pruningXMap.get('red').set('flying', new Map());
+pruningXMap.get('red').get('flying').set('beatWalking', 255);
+pruningXMap.get('red').get('flying').set('beatFlying', 255);
+
+
 let pruningX = function (team,functional,victim) {
-    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
-        return 530;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return 430;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
-        return 390;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
-        return 270;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return 410;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 950;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 500;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
-        return 500;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
-        return 255;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
-        return 255;
-    };
+    return pruningXMap.get(team).get(functional).get(victim);
 };
 
+
+// let pruningY = function (team,functional,victim) {
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
+//         return 619;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
+//         return 500;
+//     };
+//     if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
+//         return 500;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
+//         return 270;
+//     };
+//     if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
+//         return 580;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
+//         return 970;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
+//         return 580;
+//     };
+//     if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
+//         return 570;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
+//         return 255;
+//     };
+//     if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
+//         return 255;
+//     };
+// };
+
+
+
+
+pruningYMap.set('blue', new Map());
+pruningYMap.get('blue').set('walking', new Map());
+pruningYMap.get('blue').get('walking').set('beatWalking', 619);
+pruningYMap.get('blue').get('walking').set('beatFlying', 500);
+pruningYMap.get('blue').get('walking').set('beatAll', 500);
+pruningYMap.get('blue').set('flying', new Map());
+pruningYMap.get('blue').get('flying').set('beatWalking', 270);
+pruningYMap.get('blue').get('flying').set('beatFlying', 580); 
+pruningYMap.set('red', new Map());
+pruningYMap.get('red').set('walking', new Map());
+pruningYMap.get('red').get('walking').set('beatWalking', 970);
+pruningYMap.get('red').get('walking').set('beatFlying', 580);
+pruningYMap.get('red').get('walking').set('beatAll', 570);
+pruningYMap.get('red').set('flying', new Map());
+pruningYMap.get('red').get('flying').set('beatWalking', 255);
+pruningYMap.get('red').get('flying').set('beatFlying', 255);
+
+
 let pruningY = function (team,functional,victim) {
-    if (team === 'blue' && functional === 'walking' && victim === 'beatWalking') {
-        return 619;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatFlying') {
-        return 500;
-    };
-    if (team === 'blue' && functional === 'walking' && victim === 'beatAll') {
-        return 500;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatWalking') {
-        return 270;
-    };
-    if (team === 'blue' && functional === 'flying' && victim === 'beatFlying') {
-        return 580;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatWalking') {
-        return 970;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatFlying') {
-        return 580;
-    };
-    if (team === 'red' && functional === 'walking' && victim === 'beatAll') {
-        return 570;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatWalking') {
-        return 255;
-    };
-    if (team === 'red' && functional === 'flying' && victim === 'beatFlying') {
-        return 255;
-    };
+    return pruningYMap.get(team).get(functional).get(victim);
 };
+
+
 
 export class Unit {
     constructor(functional, team, victim) {
@@ -272,19 +356,22 @@ class Tower {
     constructor(team, dispositionX) {
         this.team = team;
         this.dispositionX = dispositionX;
-		this.dispositionY = 100;//условно;
+		this.dispositionY = 140;//условно;
         this.energy = 100;
-		this.width = 100;
+		this.width = 200;
 		this.height = 500;
     }
 
     draw () {
-        ctx.fillStyle = this.team;
-        ctx.fillRect (this.dispositionX, this.dispositionY, this.width, this. height);
-
+        if (this.team === 'blue') {
+            ctx.drawImage(tower, 30, 20, this.width, this. height -150, this.dispositionX, this.dispositionY, this.width, this. height );
+        }
+        if (this.team === 'red') {
+            ctx.drawImage(tower, 290, 30, this.width, this. height -150, this.dispositionX, this.dispositionY, this.width, this. height);
+        }
         ctx.fillStyle = "gold";
         ctx.font = "40px Orbital";
-        ctx.fillText(Math.floor(this.energy), this.dispositionX + 20, this.dispositionY + 300);
+        ctx.fillText(Math.floor(this.energy), this.dispositionX + 25, this.dispositionY + 350);
     }
 }
 
