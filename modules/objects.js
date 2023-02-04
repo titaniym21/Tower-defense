@@ -1,3 +1,9 @@
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+export { ctx };
+export { canvas };
+let objMap = new Map();
+export { objMap };
 let redArmy = [];
 let blueArmy = [];
 export { redArmy };

@@ -7,16 +7,16 @@ import {
   gameOver,
   countRed,
   countBlue,
-  mainMusic
+  mainMusic,
+  canvas,
+  ctx,
 } from "./objects.js";
 import { clashArmy1, clashArmy2, moveSoldiers } from "./moveSoldiers.js";
 import { crashTower } from "./atackedTower.js";
 
-let canvas = document.getElementById("canvas");
 
-let ctx = canvas.getContext("2d");
-let widthCtx = canvas.width;
-let heightCtx = canvas.height;
+const widthCtx = canvas.width;
+const heightCtx = canvas.height;
 
 let field = new Image(widthCtx, heightCtx);
 field.src = "img/field.jpg";
@@ -69,11 +69,9 @@ let allGame = function () {
       renderingTowers(blueTowers);
       ctx.fillStyle = "red";
       ctx.font = "40px serif";
-      ctx.fillText("Total Damage: " + damageRed, 50, 150);
       ctx.fillText("Number of created\nfighters: " + countRed[0], 50, 300);
       ctx.fillText("Number of dead\nfighters: " + countRed[1], 50, 450);
       ctx.fillStyle = "blue";
-      ctx.fillText("Total Damage: " + damageBlue, 350, 200);
       ctx.fillText("Number of created\nfighters: " + countBlue[0], 350, 350);
       ctx.fillText("Number of dead\nfighters: " + countBlue[1], 350, 500);
     }

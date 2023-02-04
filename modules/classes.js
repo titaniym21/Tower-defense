@@ -1,5 +1,4 @@
-import {blueTowers, redTowers} from "./objects.js";
-import {ctx} from "./spriteAnimation.js";
+import {blueTowers, redTowers, objMap, ctx} from "./objects.js";
 
 let redTowerLeft = new Image(2200, 375);
 redTowerLeft.src = "img/red_tower.png";
@@ -38,7 +37,7 @@ let redFlyingFly = new Image(1200, 300);
 redFlyingFly.src = "img/red_flying_beat_fly.png";
 
 // конструктор объекта
-function objConstructor(
+function unitParametrConst(
     sprites,
     xLastPositionSprite,
     spriteStep,
@@ -53,18 +52,17 @@ function objConstructor(
 }
 
 // создание объектов
-let blueWalkingWalkObj = new objConstructor(blueWalkingWalk, 12000, 610, 530, 619);
-let blueWalkingFlyObj = new objConstructor(blueWalkingFly, 4240, 410, 430, 500);
-let blueWalkingAllObj = new objConstructor(blueWalkingAll, 3500, 430, 390, 500);
-let blueFlyingWalkObj = new objConstructor(blueFlyingWalk, 3175, 275, 270, 270);
-let blueFlyingFlyObj = new objConstructor(blueFlyingFly, 12500, 440, 410, 580);
-let redWalkingWalkObj = new objConstructor(redWalkingWalk, 12600, 1050, 950, 970);
-let redWalkingFlyObj = new objConstructor(redWalkingFly, 6000, 528, 500, 580);
-let redWalkingAllObj = new objConstructor(redWalkingAll, 4680, 520, 500, 570);
-let redFlyingWalkObj = new objConstructor(redFlyingWalk, 2600, 260, 255, 255);
-let redFlyingFlyObj = new objConstructor(redFlyingFly, 3072, 256, 255, 255);
+let blueWalkingWalkObj = new unitParametrConst(blueWalkingWalk, 12000, 610, 530, 619);
+let blueWalkingFlyObj = new unitParametrConst(blueWalkingFly, 4240, 410, 430, 500);
+let blueWalkingAllObj = new unitParametrConst(blueWalkingAll, 3500, 430, 390, 500);
+let blueFlyingWalkObj = new unitParametrConst(blueFlyingWalk, 3175, 275, 270, 270);
+let blueFlyingFlyObj = new unitParametrConst(blueFlyingFly, 12500, 440, 410, 580);
+let redWalkingWalkObj = new unitParametrConst(redWalkingWalk, 12600, 1050, 950, 970);
+let redWalkingFlyObj = new unitParametrConst(redWalkingFly, 6000, 528, 500, 580);
+let redWalkingAllObj = new unitParametrConst(redWalkingAll, 4680, 520, 500, 570);
+let redFlyingWalkObj = new unitParametrConst(redFlyingWalk, 2600, 260, 255, 255);
+let redFlyingFlyObj = new unitParametrConst(redFlyingFly, 3072, 256, 255, 255);
 
-let objMap = new Map();
 objMap.set("blue", new Map());
 objMap.get("blue").set("walking", new Map());
 objMap.get("blue").get("walking").set("beatWalking", blueWalkingWalkObj);
@@ -236,3 +234,5 @@ let blueTower = new Tower("blue", 880);
 
 redTowers.push(redTower);
 blueTowers.push(blueTower);
+
+
