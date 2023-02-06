@@ -28,8 +28,10 @@ let pauseGame = function () {
   if (gameOver[0]) {
     if (pauseBoolean[0]) {
       pauseBoolean[0] = false;
+      pauseButton.textContent = "Resume";
     } else {
       pauseBoolean[0] = true;
+      pauseButton.textContent = "Pause";
       createSoldiers("red", redArmy);
       createSoldiers("blue", blueArmy);
       allGame();
